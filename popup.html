@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rustam Panda</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="popup-logo">
+        <img src="icons/icon48.png" alt="Rustam Panda" class="popup-panda-avatar" />
+      </div>
+      <div>
+        <div class="popup-title">Rustam Panda</div>
+        <div class="popup-author">developed by <strong>@abbyisonline</strong></div>
+      </div>
+    </div>
+
+    <div class="popup-live-box" id="popup-live-box">
+      <div class="popup-live-stat">
+        <span class="popup-live-label">Captured on Tab:</span>
+        <span class="popup-live-val" id="popup-live-count">0 Ads</span>
+      </div>
+      <button id="btn-toggle-autoscroll" class="popup-btn popup-btn-autoscroll">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        <span id="btn-autoscroll-text">Auto-Scroll</span>
+      </button>
+    </div>
+
+    <!-- Permanent OpenRouter API Key Storage -->
+    <div class="popup-api-box">
+      <div class="popup-api-header">
+        <div class="popup-api-title-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4zm-2 6V6a2 2 0 1 1 4 0v2h-4z"/></svg>
+          <span class="popup-api-title">OpenRouter API Key</span>
+        </div>
+        <span id="popup-api-status" class="popup-api-badge not-set">Not Set</span>
+      </div>
+      <div class="popup-api-input-wrap">
+        <input type="password" id="popup-input-apikey" class="popup-api-input" placeholder="sk-or-v1-..." autocomplete="off" spellcheck="false" />
+        <button type="button" id="popup-btn-toggle-key" class="popup-btn-eye" title="Show/Hide Key">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+        <button type="button" id="popup-btn-save-key" class="popup-btn-save-key">Save</button>
+      </div>
+      <div class="popup-api-footer">
+        <span class="popup-api-hint">Saved permanently in Chrome Storage</span>
+        <a href="https://openrouter.ai/keys" target="_blank" class="popup-api-link">Get Key &rarr;</a>
+      </div>
+    </div>
+
+    <div class="popup-body">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+        </div>
+        <div class="feature-info">
+          <div class="feature-title">Campaign Hierarchy Folders</div>
+          <div class="feature-desc">Reconstructs Campaign &rarr; AdSet &rarr; Ad hierarchy from UTM funnel tags and collation sets.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="feature-info">
+          <div class="feature-title">Hidden UTMs &amp; Funnels</div>
+          <div class="feature-desc">Unmasks target destination URLs and extracts campaign, audience, and tracking pixels.</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        </div>
+        <div class="feature-info">
+          <div class="feature-title">Evergreen Winner Detection</div>
+          <div class="feature-desc">Calculates exact ad lifespan in days to identify scaling winners (>21 days active).</div>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div class="feature-info">
+          <div class="feature-title">Media &amp; Hierarchy Exports</div>
+          <div class="feature-desc">1-click download HD MP4 videos, images, and export folder-wise JSON and CSV.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup-footer">
+      <button id="btn-toggle-studio" class="popup-btn popup-btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+        Open Rustam Panda Studio
+      </button>
+      <button id="btn-open-library" class="popup-btn popup-btn-primary">
+        Go to Meta Ads Library
+      </button>
+      <div class="popup-credits">
+        Rustam Panda &bull; developed by <strong>@abbyisonline</strong>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rustam Panda - AI Competitor Intelligence Dossier</title>
+  <link rel="icon" type="image/png" href="icons/icon48.png">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --accent: #b45309;
+      --accent-dark: #78350f;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* Fixed Top Action Bar */
+    .top-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .toolbar-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .toolbar-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .toolbar-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-pdf {
+      background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+      color: #ffffff;
+      border-color: #9f1239;
+      box-shadow: none;
+    }
+
+    .btn-pdf:hover {
+      background: linear-gradient(135deg, #be123c 0%, #9f1239 100%);
+      transform: translateY(-1px);
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    /* Report Page Layout */
+    .report-container {
+      max-width: 920px;
+      margin: 32px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    .report-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Executive Header */
+    .executive-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .dossier-branding {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .dossier-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .dossier-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+    }
+
+    .dossier-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .dossier-author {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .dossier-meta-box {
+      text-align: right;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .meta-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+
+    /* KPI Summary Row */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 30px;
+    }
+
+    .kpi-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kpi-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .kpi-value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 2px;
+    }
+
+    /* Markdown Content Styling */
+    .adspy-report-content {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .adspy-report-content h1,
+    .adspy-report-content h2,
+    .adspy-report-content h3,
+    .adspy-report-content h4 {
+      color: #0f172a;
+      font-weight: 800;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+      page-break-after: avoid;
+    }
+
+    .adspy-report-content h1 {
+      font-size: 20px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 6px;
+    }
+
+    .adspy-report-content h2 {
+      font-size: 16px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+    }
+
+    .adspy-report-content h3 {
+      font-size: 14.5px;
+      color: #1e293b;
+    }
+
+    .adspy-section-num {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 5px;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    .adspy-report-content p {
+      margin-bottom: 14px;
+      color: #334155;
+    }
+
+    .adspy-report-content strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .adspy-report-content hr,
+    .adspy-report-hr {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 26px 0;
+    }
+
+    .adspy-report-content blockquote {
+      border-left: 4px solid var(--accent);
+      background: #fdf8f6;
+      margin: 16px 0;
+      padding: 12px 18px;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: #475569;
+      page-break-inside: avoid;
+    }
+
+    .adspy-report-content ul,
+    .adspy-report-content ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+      color: #334155;
+    }
+
+    .adspy-report-content li {
+      margin-bottom: 6px;
+    }
+
+    .adspy-report-content code {
+      font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #b45309;
+    }
+
+    /* Markdown Tables */
+    .adspy-table-wrapper {
+      width: 100%;
+      margin: 20px 0;
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      page-break-inside: avoid;
+    }
+
+    .adspy-report-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: left;
+    }
+
+    .adspy-report-table th {
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+
+    .adspy-report-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      vertical-align: top;
+    }
+
+    .adspy-report-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .adspy-report-table tr.adspy-tr-stripe td {
+      background: #fcfdfe;
+    }
+
+    .adspy-report-table tr:hover td {
+      background: #fffbeb;
+    }
+
+    /* Code Blocks */
+    .adspy-code-block-wrapper {
+      margin: 16px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #1e293b;
+      page-break-inside: avoid;
+    }
+
+    .adspy-code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 14px 18px;
+      margin: 0;
+      font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      line-height: 1.55;
+      overflow-x: auto;
+    }
+
+    /* Report Footer */
+    .executive-footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* PRINT SPECIFIC STYLES FOR CRISP VECTOR PDF */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding-bottom: 0 !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .report-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .report-card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 14mm 14mm 14mm 14mm;
+      }
+
+      .adspy-table-wrapper {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        page-break-inside: avoid;
+      }
+
+      .adspy-report-table th {
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+      }
+
+      .adspy-report-table tr.adspy-tr-stripe td {
+        background: #f8fafc !important;
+      }
+
+      blockquote {
+        page-break-inside: avoid;
+      }
+
+      tr {
+        page-break-inside: avoid;
+      }
+
+      h1, h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Sticky Action Bar (Hidden when printed) -->
+  <div class="top-toolbar no-print">
+    <div class="toolbar-brand">
+      <img src="icons/panda.jpg" class="toolbar-avatar" alt="Rustam Panda" />
+      <div>
+        <div class="toolbar-title">Rustam Panda Intelligence Dossier</div>
+        <div class="toolbar-sub">developed by @abbyisonline &bull; Meta Ads Library Teardown</div>
+      </div>
+    </div>
+
+    <div class="toolbar-actions">
+      <button id="btn-print-pdf" class="btn btn-pdf" title="Generate and Download PDF">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect width="12" height="8" x="6" y="14"></rect>
+        </svg>
+        Save as PDF (Print)
+      </button>
+
+      <button id="btn-copy-md" class="btn btn-secondary" title="Copy Markdown to Clipboard">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+        </svg>
+        Copy Markdown
+      </button>
+
+      <button id="btn-download-md" class="btn btn-secondary" title="Download .md file">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" x2="12" y1="15" y2="3"></line>
+        </svg>
+        Download .md
+      </button>
+
+      <button id="btn-close-page" class="btn btn-secondary" title="Close Dossier">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Report Card Container -->
+  <div class="report-container">
+    <div class="report-card">
+      
+      <!-- Executive Header -->
+      <div class="executive-header">
+        <div class="dossier-branding">
+          <img src="icons/panda.jpg" class="dossier-avatar" alt="Rustam Panda" />
+          <div>
+            <div class="dossier-title">Rustam Panda</div>
+            <div class="dossier-subtitle">Competitor Ad Intelligence &amp; Counter-Strategy Dossier</div>
+            <div class="dossier-author">Architected &amp; developed by <strong>@abbyisonline</strong></div>
+          </div>
+        </div>
+
+        <div class="dossier-meta-box">
+          <span id="meta-model-badge" class="meta-badge">Claude 3.5 Sonnet</span><br />
+          <span>Generated: <strong id="meta-date">-</strong></span><br />
+          <span>Sample Size: <strong id="meta-ad-count">0 Ads</strong></span>
+        </div>
+      </div>
+
+      <!-- KPI Overview Strip -->
+      <div class="kpi-row">
+        <div class="kpi-item">
+          <span class="kpi-label">AI Reasoning Engine</span>
+          <span id="kpi-model" class="kpi-value">-</span>
+        </div>
+        <div class="kpi-item">
+          <span class="kpi-label">Total Ingested Ads</span>
+          <span id="kpi-ads" class="kpi-value">0</span>
+        </div>
+        <div class="kpi-item">
+          <span class="kpi-label">Analysis Classification</span>
+          <span id="kpi-classification" class="kpi-value">Full Strategy Matrix</span>
+        </div>
+      </div>
+
+      <!-- Dynamic Rendered Markdown Content (Tables, HR, Headers) -->
+      <div id="report-rendered-body" class="adspy-report-content">
+        <p style="text-align: center; color: #64748b; padding: 40px 0;">
+          Loading competitor dossier...
+        </p>
+      </div>
+
+      <!-- Executive Footer -->
+      <div class="executive-footer">
+        <span>Confidential Competitive Intelligence Report &bull; For Internal Strategy &amp; Media Buying</span>
+        <span>Generated by Rustam Panda &bull; @abbyisonline</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Copied to clipboard!</div>
+
+  <script src="report.js"></script>
+</body>
+</html>
