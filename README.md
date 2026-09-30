@@ -9,6 +9,7 @@
 
 **Forensic Meta AdSpy tool built for performance media buyers, copywriters, and competitive intelligence analysts.**
 
+[![Live Website](https://img.shields.io/badge/Live_Website-GitHub_Pages-059669?style=for-the-badge&logo=github&logoColor=white)](https://ulixtech.github.io/Rustam-Panda/)
 [![Chrome Extension](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 [![OpenRouter Powered](https://img.shields.io/badge/AI_Engine-OpenRouter_460+_Models-6366f1?style=for-the-badge&logo=openai&logoColor=white)](https://openrouter.ai/)
 [![Telegram](https://img.shields.io/badge/Telegram-@abbyisonline-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/abbyisonline)
