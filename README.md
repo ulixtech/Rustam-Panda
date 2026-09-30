@@ -130,7 +130,7 @@ Designed from the ground up to feel like a high-end luxury terminal:
 
 1. Clone or download this repository:
    ```bash
-   git clone https://github.com/abbyisonline/rustam-panda.git
+   git clone https://github.com/ulixtech/Rustam-Panda.git
    ```
 2. Open **Google Chrome** and navigate to:
    ```text
