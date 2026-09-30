@@ -45,4 +45,4 @@ First off, thank you for considering contributing to **Rustam Panda**! Extension
 - Ensure the bug was not already reported by searching on GitHub Issues.
 - Provide a clear and concise description of the bug along with Chrome version, operating system, and steps to reproduce.
 
-Developed with ❤️ by **[@abbyisonline](https://t.me/abbyisonline)** (Telegram).
+Developed with ❤️ by **[@abbyisonline](https://github.com/ulixtech)** (Telegram: [@abbyisonline](https://t.me/abbyisonline)).

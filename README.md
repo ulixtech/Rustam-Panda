@@ -14,7 +14,7 @@
 [![OpenRouter Powered](https://img.shields.io/badge/AI_Engine-OpenRouter_460+_Models-6366f1?style=for-the-badge&logo=openai&logoColor=white)](https://openrouter.ai/)
 [![Telegram](https://img.shields.io/badge/Telegram-@abbyisonline-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/abbyisonline)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Author](https://img.shields.io/badge/Developed_by-@abbyisonline-8d4925?style=for-the-badge&logo=github&logoColor=white)](https://t.me/abbyisonline)
+[![Author](https://img.shields.io/badge/Developed_by-@abbyisonline-8d4925?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ulixtech)
 
 <br/>
 
@@ -194,9 +194,10 @@ Designed from the ground up to feel like a high-end luxury terminal:
 
 ## 👨‍💻 Author & Connect
 
-Developed with precision and obsession by **[@abbyisonline](https://github.com/abbyisonline)**.
+Developed with precision and obsession by **[@abbyisonline](https://github.com/ulixtech)**.
 
-💬 **Telegram**: [@abbyisonline](https://t.me/abbyisonline) — *Direct message for feature requests, bug reports, custom media buying tooling, or collaboration.*
+- 🐙 **GitHub Profile**: [@ulixtech](https://github.com/ulixtech)
+- 💬 **Telegram**: [@abbyisonline](https://t.me/abbyisonline) — *Direct message for feature requests, bug reports, custom media buying tooling, or collaboration.*
 
 ---
 
