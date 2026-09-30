@@ -30,7 +30,7 @@
 
 If you discover a security vulnerability within Rustam Panda, please report it responsibly:
 
-- **Contact**: Reach out directly to **@abbyisonline** on GitHub or via direct message.
+- **Contact**: Reach out directly to **[@abbyisonline](https://t.me/abbyisonline)** on Telegram or via GitHub.
 - Please include:
   - Description of the issue
   - Steps to reproduce

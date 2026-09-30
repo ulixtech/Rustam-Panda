@@ -594,7 +594,7 @@ Break down:
             </div>
             <div>
               <div class="adspy-title">Rustam Panda</div>
-              <div class="adspy-subtitle">developed by <span class="adspy-author">@abbyisonline</span></div>
+              <div class="adspy-subtitle">developed by <a href="https://t.me/abbyisonline" target="_blank" rel="noopener noreferrer" class="adspy-author" style="text-decoration:none; color:inherit;">@abbyisonline</a></div>
             </div>
           </div>
 
@@ -1123,7 +1123,7 @@ Break down:
               </div>
               <div class="adspy-empty-title">Rustam Panda is on the hunt...</div>
               <div class="adspy-empty-desc">Scroll down or click <strong>Auto-Scroll &amp; Collect</strong>. Rustam Panda will extract every ad creative, unmasked funnel, and campaign hierarchy.</div>
-              <div class="adspy-empty-author">developed by @abbyisonline</div>
+              <div class="adspy-empty-author">developed by <a href="https://t.me/abbyisonline" target="_blank" rel="noopener noreferrer" style="color:var(--adspy-accent); text-decoration:none; font-weight:600;">@abbyisonline (Telegram)</a></div>
             </div>
           `;
         } else {
